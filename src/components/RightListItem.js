@@ -32,6 +32,17 @@ export const RightListItem = ({ dog }) => {
 // UpdateLikes(id) 
 //  }
 
+// function handleCardLike(card) {
+//   const isLiked = card.likes.some(i => i._id === currentUser._id);
+//   api.changeLikeCardStatus(card.cardId, !isLiked)
+//     .then((newCard) => {
+//       const newCards = cards.map((c) => c._id === card.cardId ? newCard : c);
+//       setCards(newCards);
+//     })
+//     .catch((err)=>{
+//       console.log(`Ошибка лайка: ${err}`);
+//     });
+// }
 
   return (
     <Grid  

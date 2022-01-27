@@ -1,20 +1,12 @@
 import { useEffect, useState, useMemo } from "react"
-import axios from "axios"
+import { getDogs } from "../utils/api"
 
 export const FetchData = () => {
   const [loading, setLoading] = useState(true)
   const [dogsArr, setDogsArr] = useState([])
-
-  const URL = "https://dog.ceo/api/breeds/list/all"
-
+ 
   useEffect(() => {
-    axios
-      .get(URL)
-      .then((Response) => {
-        setLoading(true)
-        const res = Response.data.message
-        return res
-      })
+    getDogs()
       .then((res) => {
         setDogsArr(Object.keys(res))
         setLoading(false)
