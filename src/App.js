@@ -18,6 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function App() {
   const { loading, dogsObj } = FetchData([])
   console.log("dogsObj", dogsObj)
+
   return (
     <div className="App">
       {loading && <div>Loading</div>}
@@ -34,6 +35,7 @@ function App() {
                 <LeftList loading={loading} dogsObj={dogsObj} />
               </Item>
             </Grid>
+            
             <Grid item xs={8}>
               <Item>
                 <RightList loading={loading} dogsObj={dogsObj} />

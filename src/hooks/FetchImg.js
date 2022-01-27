@@ -23,7 +23,9 @@ export const FetchImg = ({ dog }) => {
   }, [])
  
   return <div className="imgDog">
+<div className="wrap">
     <img  src={dataImg}></img>
+    </div>
   </div>
    
 }
