@@ -6,13 +6,19 @@ import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
 import { Context } from "../contexts/Context"
+import { useLocalStorage } from '../hooks'
 
 export const RightListItem = ({ dog }) => {
   const [context, setContext] = useContext(Context)
-
   const { id, breed, likes } = dog
-
   const [count, setCount] = useState(0)
+
+  // const [username, setUsername] = useLocalStorage("username", "John")
+  // const [likesLS, setLikesLS] = useLocalStorage("likes", "5")
+  // const [dogLS, setDogLS] = useLocalStorage("allDogs", dog)
+
+  // const [id] = useLocalStorage('id' )
+  // const [likes] = useLocalStorage('likes')
 
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1)
