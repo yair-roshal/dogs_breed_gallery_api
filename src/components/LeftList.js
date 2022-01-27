@@ -15,7 +15,7 @@ export const LeftList = ({ loading, dogsObj }) => {
   for (var i = 0; i < dogsObj.length; ++i) {
     const values = Object.values(dogsObj[i])
     newArr.push(values[1])
-    console.log("values", values)
+    // console.log("values", values)
   }
   console.log("newArr", newArr)
   const filter = [...new Set([...newArr])]
@@ -36,7 +36,8 @@ export const LeftList = ({ loading, dogsObj }) => {
       {loading && <div>Loading</div>}
       {!loading && (
         <div>
-           <div>ComponentB: {context}</div>;
+           {/* <div>context now--- {context}</div>; */}
+           {console.log('context222', context)}
           <List>
             {dogsObj.map((dog, index) => (
               <LeftListItem key={index} dog={dog} />

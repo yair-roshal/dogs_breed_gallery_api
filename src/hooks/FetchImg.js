@@ -20,7 +20,7 @@ export const FetchImg = ({ dog }) => {
         setLoading(false)
       })
       .catch((error) => console.log(error))
-  }, [])
+  }, [dog])
  
   return <div className="imgDog">
 <div className="wrap">
