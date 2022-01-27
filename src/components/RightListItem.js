@@ -13,6 +13,10 @@ export const RightListItem = ({ dog }) => {
   const { id, breed, likes } = dog
   const [count, setCount] = useState(0)
 
+
+  // const [allDogs] = useLocalStorage('allDogs')
+// console.log('allDogs5555', allDogs);
+
   // const [username, setUsername] = useLocalStorage("username", "John")
   // const [likesLS, setLikesLS] = useLocalStorage("likes", "5")
   // const [dogLS, setDogLS] = useLocalStorage("allDogs", dog)
@@ -22,6 +26,8 @@ export const RightListItem = ({ dog }) => {
 
   const handleIncrement = () => {
     setCount((prevCount) => prevCount + 1)
+
+
   }
 
   return (

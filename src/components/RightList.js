@@ -8,11 +8,13 @@ export const RightList = ({ loading, dogsObj }) => {
 
   const elementRef = useRef(0)
 
-  const [dogLS, setDogLS] = useLocalStorage("allDogs", [])
+  // const [dogLS, setDogLS] = useLocalStorage("allDogs", dogsObj)
  
-  useEffect(() => {
-    setDogLS(dogsObj)
-   }, [dogsObj])
+  // useEffect(() => {
+  //   setDogLS(dogsObj)
+  //  }, [dogsObj])
+
+
 
   //  function updateData(dogs) {
   //   setDogs(dogs)
@@ -29,8 +31,7 @@ export const RightList = ({ loading, dogsObj }) => {
         <div>
           <Grid
             ref={elementRef}
-            // onClick={HandleCountLikes}
-            container
+             container
             spacing={2}
           >
             {dogsObj.map((dog, index) => (
