@@ -7,9 +7,7 @@ import { Context } from "./contexts/Context"
 export function App() {
   const { loading, dogsObj } = FetchData([])
   const [context, setContext] = useState([])
-
  
-
   const DATA2 = [
     {
       id: "1",
@@ -25,7 +23,7 @@ export function App() {
 
   useEffect(() => {
  
-    // console.log('dogsObj', dogsObj);
+    console.log('dogsObj222', dogsObj);
     setContext(dogsObj)
     //  setContext(DATA2)
     // debugger;

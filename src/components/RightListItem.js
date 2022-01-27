@@ -13,8 +13,8 @@ export const RightListItem = ({ dog }) => {
   const { id,breed, likes } = dog
 
   const [count, setCount] = useState(0)
-
-  const elementRef = useRef(0)
+ 
+  // const elementRef = useRef(0)
 
   // useEffect(() => {
   //   setDogs(dogs)
@@ -24,9 +24,9 @@ export const RightListItem = ({ dog }) => {
   //   setDogs(dogs)
   // }
 
-//   function HandleCountLikes(id) {
-// UpdateLikes(id) 
-//  }
+  const handleIncrement = () => {
+    setCount(prevCount => prevCount + 1);
+  };
 
 // function handleCardLike(card) {
 //   const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -41,21 +41,12 @@ export const RightListItem = ({ dog }) => {
 // }
 
 
-// function handleCardLike(card) {
-//   const isLiked = card.likes.some(i => i._id === currentUser._id);
-//   api.changeLikeCardStatus(card.cardId, !isLiked)
-//     .then((newCard) => {
-//       const newCards = cards.map((c) => c._id === card.cardId ? newCard : c);
-//       setCards(newCards);
-//     })
-//     .catch((err)=>{
-//       console.log(`Ошибка лайка: ${err}`);
-//     });
-// }
+ 
 
   return (
     <Grid  
-     ref={elementRef}
+    //  ref={elementRef}
+    onClick={handleIncrement}
     // onClick={HandleCountLikes(id)}
     // onClick={() => setContext("New123")}
     item xs={3}>
@@ -63,10 +54,10 @@ export const RightListItem = ({ dog }) => {
         <CardHeader subheader={breed} />
         <CardContent>
           <Typography variant="body2" color="text.secondary">
-            likes={likes}
+            likes={count}
           </Typography>
         </CardContent>
-        <FetchImg dog={breed} />
+         <FetchImg dog={breed} />
       </Card>
     </Grid>
   )
