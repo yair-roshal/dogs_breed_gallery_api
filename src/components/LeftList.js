@@ -7,10 +7,7 @@ import { Context } from "../contexts/Context";
 export const LeftList = ({ loading, dogsObj }) => {
   // const [dogsArr, setDogsArr] = useState([])
   const [context, setContext] = useContext(Context);
-
-  // const filter = [...new Set([...dogsObj ])]
-  // console.log('filter', filter);
-
+ 
   let newArr = []
   for (var i = 0; i < dogsObj.length; ++i) {
     const values = Object.values(dogsObj[i])
@@ -18,16 +15,17 @@ export const LeftList = ({ loading, dogsObj }) => {
     // console.log("values", values)
   }
   console.log("newArr", newArr)
-  const filter = [...new Set([...newArr])]
-  console.log("filter", filter)
+ 
+  let countElem= newArr.reduce((acc, el) => {
+    acc[el] = (acc[el] || 0) + 1;
+    return acc;
+  }, {}) 
 
-  // const values = Object.values(dogsObj); // [ 'JS: React', 'js-react' ]
-  // console.log('values', values);
+    console.log("countElem", countElem)
+   
+    const entries = Object.entries(countElem)
+    console.log("countElem", countElem)
 
-  // for (const value of values) {
-  //   console.log(value);
-
-  // tempHouses = tempHouses.filter(house => house.countR >= countR);
 
   const URL = "https://dog.ceo/api/breeds/list/all"
 
@@ -37,9 +35,9 @@ export const LeftList = ({ loading, dogsObj }) => {
       {!loading && (
         <div>
            {/* <div>context now--- {context}</div>; */}
-           {console.log('context222', context)}
+           {/* {console.log('context222', context)} */}
           <List>
-            {dogsObj.map((dog, index) => (
+            {countElem.map((dog, index) => (
               <LeftListItem key={index} dog={dog} />
             ))}
           </List>
