@@ -7,8 +7,12 @@ import CardHeader from "@mui/material/CardHeader"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 
-export const LeftListItem = ({ dog }) => {
-  const { breed, likes } = dog
+export const LeftListItem = ({dog}) => {
+  // const { breed, likes } = dog
+const breed=dog[0]
+const counts=dog[1]
+const likes=0
+ 
   return (
     <Box
       sx={{
@@ -35,7 +39,7 @@ export const LeftListItem = ({ dog }) => {
           />
           <CardContent>
             <Typography variant="body1" color="text.secondary">
-              counts={likes}
+              counts={counts}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               likes={likes}
