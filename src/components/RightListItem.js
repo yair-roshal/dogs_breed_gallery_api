@@ -28,15 +28,15 @@ export const RightListItem = ({ dog }) => {
   //   setDogs(dogs)
   // }
 
-  function HandleCountLikes(id) {
-UpdateLikes(id) 
- }
+//   function HandleCountLikes(id) {
+// UpdateLikes(id) 
+//  }
 
 
   return (
     <Grid  
      ref={elementRef}
-    onClick={HandleCountLikes(id)}
+    // onClick={HandleCountLikes(id)}
     // onClick={() => setContext("New123")}
     item xs={3}>
       <Card sx={{ maxWidth: 345 }}>
