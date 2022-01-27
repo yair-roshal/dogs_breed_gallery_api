@@ -1,15 +1,11 @@
 import { useEffect, useState,useContext,useRef } from "react"
-import { FetchData } from "../hooks"
-import { FetchImg } from "../hooks"
-
-// import { styled } from '@mui/material/styles';
-import Card from "@mui/material/Card"
+ import { FetchImg } from "../hooks" 
+ import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid" 
-import {Update} from "@mui/icons-material"
-import { Context } from "../contexts/Context";
+ import { Context } from "../contexts/Context";
 
 export const RightListItem = ({ dog }) => {
   const [context, setContext] = useContext(Context);
@@ -31,6 +27,19 @@ export const RightListItem = ({ dog }) => {
 //   function HandleCountLikes(id) {
 // UpdateLikes(id) 
 //  }
+
+// function handleCardLike(card) {
+//   const isLiked = card.likes.some(i => i._id === currentUser._id);
+//   api.changeLikeCardStatus(card.cardId, !isLiked)
+//     .then((newCard) => {
+//       const newCards = cards.map((c) => c._id === card.cardId ? newCard : c);
+//       setCards(newCards);
+//     })
+//     .catch((err)=>{
+//       console.log(`Ошибка лайка: ${err}`);
+//     });
+// }
+
 
 // function handleCardLike(card) {
 //   const isLiked = card.likes.some(i => i._id === currentUser._id);

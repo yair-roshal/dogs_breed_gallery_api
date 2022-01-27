@@ -1,10 +1,10 @@
-import { useEffect, useState, useMemo } from "react"
+import { useEffect, useState   } from "react"
 import { getDogs } from "../utils/api"
 
 export const FetchData = () => {
   const [loading, setLoading] = useState(true)
   const [dogsArr, setDogsArr] = useState([])
- 
+
   useEffect(() => {
     getDogs()
       .then((res) => {
@@ -13,25 +13,6 @@ export const FetchData = () => {
       })
       .catch((error) => console.log(error))
   }, [])
-
-  //   async function fetchImg(dog) {
-  //     const URL = `https://dog.ceo/api/breed/${dog}/images/random`
-  //     let res = await axios.get(URL);
-  //     let data = res.data;
-  //     return data.message
-  //   }
-
-  //   function fetchImg(dog) {
-  //   const URL = `https://dog.ceo/api/breed/${dog}/images/random`
-  //   return  fetch(URL)
-  //   .then((resp) => resp.json())
-  //   .then(function(data) {
-  //     return data.message
-  //   })
-  //   .catch(function(error) {
-  //     console.log(error);
-  //   });
-  // }
 
   function random(min, max) {
     return Math.round(min + Math.random() * (max - min))
@@ -63,7 +44,7 @@ export const FetchData = () => {
   }
 
   const dogsObj = toObject(dogsArrRandom)
-  console.log("dogsObj", dogsObj)
+  // console.log("dogsObj", dogsObj)
 
   return { loading, dogsObj }
 }

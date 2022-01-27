@@ -5,20 +5,25 @@ export const FetchImg = ({ dog }) => {
   const [loading, setLoading] = useState(true)
   const [dataImg, setDataImg] = useState([])
 
- 
   useEffect(() => {
-    getImage(dog).then((res) => {
-      setDataImg(res)
-      setLoading(false)
-    })
-    .catch((error) => console.log(error))
+    getImage(dog)
+      .then((res) => {
+        setDataImg(res)
+        setLoading(false)
+      })
+      .catch((error) => console.log(error))
   }, [])
 
   return (
-    <div className="imgDog">
-      <div className="wrap">
-        <img src={dataImg}></img>
-      </div>
-    </div>
+    <>
+      {loading && <div>Loading</div>}
+      {!loading && (
+        <div className="imgDog">
+          <div className="wrap">
+            <img src={dataImg} alt="dog"></img>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
