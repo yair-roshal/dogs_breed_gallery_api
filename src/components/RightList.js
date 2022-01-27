@@ -15,9 +15,9 @@ export const RightList = ({ loading, dogsObj }) => {
   //   setDogs(dogs)
   // }
 
-  function HandleCountLikes() {
-    elementRef.current++
-  }
+  // function HandleCountLikes() {
+  //   elementRef.current++
+  // }
 
   return (
     <div>
@@ -26,7 +26,7 @@ export const RightList = ({ loading, dogsObj }) => {
         <div>
           <Grid
             ref={elementRef}
-            onClick={HandleCountLikes}
+            // onClick={HandleCountLikes}
             container
             spacing={2}
           >

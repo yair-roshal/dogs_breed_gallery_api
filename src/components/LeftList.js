@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react"
+import   { useEffect, useState,useContext } from "react"
 import List from "@mui/material/List"
 
 import { LeftListItem } from "./LeftListItem"
-
+import { Context } from "../contexts/Context";
+ 
 export const LeftList = ({ loading, dogsObj }) => {
   // const [dogsArr, setDogsArr] = useState([])
+  const [context, setContext] = useContext(Context);
 
   // const filter = [...new Set([...dogsObj ])]
   // console.log('filter', filter);
@@ -34,6 +36,7 @@ export const LeftList = ({ loading, dogsObj }) => {
       {loading && <div>Loading</div>}
       {!loading && (
         <div>
+           <div>ComponentB: {context}</div>;
           <List>
             {dogsObj.map((dog, index) => (
               <LeftListItem key={index} dog={dog} />

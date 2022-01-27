@@ -1,14 +1,12 @@
-import "./App.css"
-import { RightList } from "./components"
-import { LeftList } from "./components"
-import { Home } from "./components"
+import { RightList } from "./RightList"
+import { LeftList } from "./LeftList"
 import { styled } from "@mui/material/styles"
 import Grid from "@mui/material/Grid"
 import Paper from "@mui/material/Paper"
 import Box from "@mui/material/Box"
-import { useEffect, useState, useRef } from "react" 
-import { FetchData } from "./hooks"
-import { Context } from "./contexts/Context";
+
+import { FetchData } from "../hooks"
+import   { useEffect, useState,useContext } from "react"
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -17,19 +15,14 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }))
 
-function App() {
+export function Home() {
   const { loading, dogsObj } = FetchData([])
-  const [context, setContext] = useState("default context value");
+  const [context, setContext] = useState("default context value")
 
   console.log("dogsObj", dogsObj)
 
   return (
-    <Context.Provider value={[context, setContext]}>
-
-    <div className="App">
-
-      <Home/>
-{/* 
+    <>
       {loading && <div>Loading</div>}
       {!loading && (
         <Box sx={{ width: "100%" }}>
@@ -51,11 +44,9 @@ function App() {
             </Grid>
           </Grid>
         </Box>
-      )} */}
-    </div>
-    </Context.Provider>
-
+      )}
+    </>
   )
 }
 
-export default App
+ 
