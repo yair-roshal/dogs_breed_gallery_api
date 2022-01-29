@@ -1,29 +1,18 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef,useContext } from "react"
 import { RightListItem } from "./RightListItem"
 import Grid from "@mui/material/Grid"
 import { useLocalStorage } from '../hooks'
+import { MyContext } from "../contexts/Context"
+
 
 export const RightList = ({ loading, dogsObj }) => {
-  const [count, setCount] = useState(0)
+   const elementRef = useRef(0)
 
-  const elementRef = useRef(0)
+  const dogs_context = useContext(MyContext);
+  console.log("dogs_context_RightList", dogs_context)
 
   // const [dogLS, setDogLS] = useLocalStorage("allDogs", dogsObj)
- 
-  // useEffect(() => {
-  //   setDogLS(dogsObj)
-  //  }, [dogsObj])
-
-
-
-  //  function updateData(dogs) {
-  //   setDogs(dogs)
-  // }
-
-  // function HandleCountLikes() {
-  //   elementRef.current++
-  // }
-
+  
   return (
     <div>
       {loading && <div>Loading</div>}

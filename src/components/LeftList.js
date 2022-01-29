@@ -2,11 +2,11 @@ import { useEffect, useState, useContext } from "react"
 import List from "@mui/material/List"
 
 import { LeftListItem } from "./LeftListItem"
-import { Context } from "../contexts/Context"
+import { MyContext } from "../contexts/Context"
 
 export const LeftList = ({ loading, dogsObj }) => {
   // const [dogsArr, setDogsArr] = useState([])
-  const [context, setContext] = useContext(Context)
+  const [context, setContext] = useContext(MyContext)
 
   let newArr = []
   for (var i = 0; i < dogsObj.length; ++i) {

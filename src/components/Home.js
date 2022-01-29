@@ -7,6 +7,7 @@ import Paper from "@mui/material/Paper"
 import Box from "@mui/material/Box"
 
 import { FetchData } from "../hooks"
+import { MyContext } from "../contexts/Context"
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -16,23 +17,12 @@ const Item = styled(Paper)(({ theme }) => ({
 }))
 
 export function Home({loading,dogsObj}) {
-   const [context, setContext] = useState("1233333")
-
-  console.log("dogsObj333", dogsObj)
+ 
+    const dogs_context = useContext(MyContext);
+  console.log("dogs_context_home", dogs_context)
 
  
-//   const DATA = [
-//     {
-//       id: '1',
-//       title: 'The Road to React',
-//       price: 19.99,
-//     },
-//     {
-//       id: '2',
-//       title: 'The Road to GraphQL',
-//       price: 29.99,
-//     },
-//   ];
+ 
 
 // useEffect(()=>{
 //   // setContext(dogsObj) 
@@ -52,13 +42,13 @@ export function Home({loading,dogsObj}) {
           >
             <Grid item xs={4}>
               <Item>
-                <LeftList loading={loading} dogsObj={dogsObj} />
+                <LeftList loading={loading} dogsObj={dogs_context} />
               </Item>
             </Grid>
 
             <Grid item xs={8}>
               <Item>
-                <RightList loading={loading} dogsObj={dogsObj} />
+                <RightList loading={loading} dogsObj={dogs_context} />
               </Item>
             </Grid>
           </Grid>

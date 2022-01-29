@@ -5,11 +5,11 @@ import CardHeader from "@mui/material/CardHeader"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
-import { Context } from "../contexts/Context"
+import { MyContext } from "../contexts/Context"
 import { useLocalStorage } from '../hooks'
 
 export const RightListItem = ({ dog }) => {
-  const [context, setContext] = useContext(Context)
+  const [context, setContext] = useContext(MyContext)
   const { id, breed, likes } = dog
   const [count, setCount] = useState(0)
 

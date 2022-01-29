@@ -1,36 +1,16 @@
-import { useEffect, useState   } from "react"
+import { useEffect, useState } from "react"
 import { getDogs } from "../utils/api"
-import { useLocalStorage } from '../hooks'
+import { useLocalStorage } from "../hooks"
+import { MyContext } from "../contexts/Context"
 
 export const FetchData = () => {
   const [loading, setLoading] = useState(true)
   const [dogsArr, setDogsArr] = useState([])
+  const [context, setContext] = useState(MyContext)
 
-  const [dogLS, setDogLS] = useLocalStorage("allDogs5", [ 1])
-    // const [id] = useLocalStorage('id' )
+  // const [dogLS, setDogLS] = useLocalStorage("allDogs5", [ 1])
   // const [allDogs] = useLocalStorage('allDogs')
-// console.log('allDogs5555', allDogs);
-
-  const [username, setUsername] = useLocalStorage("username", "John")
-  // const [likesLS, setLikesLS] = useLocalStorage("likes", "5")
-  // const [dogLS, setDogLS] = useLocalStorage("allDogs", dog)
-
-  // const [id] = useLocalStorage('id' )
-  // const [likes] = useLocalStorage('likes')
-
-
-  useEffect(() => {
-    getDogs()
-      .then((res) => {
-        setDogsArr(Object.keys(res)) 
-        setLoading(false)
-      })
-      .then(( ) => {
-        setDogLS(dogsObj) 
-      })
-
-      .catch((error) => console.log(error))
-  }, [])
+  // const [username, setUsername] = useLocalStorage("username", "John")
 
   function random(min, max) {
     return Math.round(min + Math.random() * (max - min))
@@ -43,8 +23,6 @@ export const FetchData = () => {
     }
     return randomArr
   }
-
-  const dogsArrRandom = randomArray(dogsArr)
 
   function toObject(arr) {
     let arrOfObj = []
@@ -60,9 +38,19 @@ export const FetchData = () => {
 
     return arrOfObj
   }
+  useEffect(() => {
+    getDogs()
+      .then((res) => {
+        setDogsArr(Object.keys(res))
+        setContext(toObject(randomArray(Object.keys(res)))) 
+        setLoading(false)
+      }) 
+      .catch((error) => console.log(error))
+  }, [])
 
+  const dogsArrRandom = randomArray(dogsArr) 
   const dogsObj = toObject(dogsArrRandom)
-  // console.log("dogsObj", dogsObj)
 
+  console.log('context', context);
   return { loading, dogsObj }
 }
