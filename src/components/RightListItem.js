@@ -9,33 +9,32 @@ import { MyContext } from "../contexts/Context"
 import { useLocalStorage } from '../hooks'
 
 export const RightListItem = ({ dog }) => {
-  const [context, setContext] = useContext(MyContext)
+  // const [context, setContext] = useContext(MyContext)
+ 
   const { id, breed, likes } = dog
   const [count, setCount] = useState(0)
-
-
-  // const [allDogs] = useLocalStorage('allDogs')
-// console.log('allDogs5555', allDogs);
-
-  // const [username, setUsername] = useLocalStorage("username", "John")
-  // const [likesLS, setLikesLS] = useLocalStorage("likes", "5")
-  // const [dogLS, setDogLS] = useLocalStorage("allDogs", dog)
-
-  // const [id] = useLocalStorage('id' )
-  // const [likes] = useLocalStorage('likes')
-
+ 
   const handleIncrement = () => {
-    setCount((prevCount) => prevCount + 1)
-
-
+    setCount((prevCount) => prevCount + 1) 
   }
+ 
+// console.log('dog1111', dog);
 
+//   const dogs = [
+//   { id: 0, breed: "newfoundland", likes: 0 },
+//   { id: 1, breed: "hound", likes: 0 },
+//   { id: 2, breed: "labrador", likes: 0 },
+// ]
+
+  // useEffect(() => {  
+  //        setContext(toObject(randomArray(Object.keys(res))))
+      
+  // }, [])
+ 
   return (
     <Grid
-      //  ref={elementRef}
-      onClick={handleIncrement}
-      // onClick={HandleCountLikes(id)}
-      // onClick={() => setContext("New123")}
+       onClick={handleIncrement}
+      //  onClick={() => setContext(dogs)}
       item
       xs={3}
     >

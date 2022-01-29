@@ -16,20 +16,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }))
 
-export function Home({loading,dogsObj}) {
+export function Home({loading}) {
  
-    const dogs_context = useContext(MyContext);
-  console.log("dogs_context_home", dogs_context)
-
+    const {context, setContext} = useContext(MyContext);
+  console.log("dogs_context_home", context)
  
- 
-
-// useEffect(()=>{
-//   // setContext(dogsObj) 
-//   setContext(DATA) 
-// },[])
-
-
   return (
     <>
       {loading && <div>Loading</div>}
@@ -42,13 +33,13 @@ export function Home({loading,dogsObj}) {
           >
             <Grid item xs={4}>
               <Item>
-                <LeftList loading={loading} dogsObj={dogs_context} />
+                <LeftList loading={loading} dogsObj={context} />
               </Item>
             </Grid>
 
             <Grid item xs={8}>
               <Item>
-                <RightList loading={loading} dogsObj={dogs_context} />
+                <RightList loading={loading} dogsObj={context} />
               </Item>
             </Grid>
           </Grid>

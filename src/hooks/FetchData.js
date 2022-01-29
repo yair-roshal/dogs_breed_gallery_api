@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react"
 import { getDogs } from "../utils/api"
-import { useLocalStorage } from "../hooks"
-import { MyContext } from "../contexts/Context"
+ import { MyContext } from "../contexts/Context"
 
 export const FetchData = () => {
   const [loading, setLoading] = useState(true)
   const [dogsArr, setDogsArr] = useState([])
-  const [context, setContext] = useState(MyContext)
-
-  // const [dogLS, setDogLS] = useLocalStorage("allDogs5", [ 1])
-  // const [allDogs] = useLocalStorage('allDogs')
-  // const [username, setUsername] = useLocalStorage("username", "John")
-
+  // const [context, setContext] = useState(MyContext)
+  
   function random(min, max) {
     return Math.round(min + Math.random() * (max - min))
   }
@@ -42,7 +37,7 @@ export const FetchData = () => {
     getDogs()
       .then((res) => {
         setDogsArr(Object.keys(res))
-        setContext(toObject(randomArray(Object.keys(res)))) 
+        // setContext(toObject(randomArray(Object.keys(res)))) 
         setLoading(false)
       }) 
       .catch((error) => console.log(error))
@@ -51,6 +46,6 @@ export const FetchData = () => {
   const dogsArrRandom = randomArray(dogsArr) 
   const dogsObj = toObject(dogsArrRandom)
 
-  console.log('context', context);
+  // console.log('context', context);
   return { loading, dogsObj }
 }

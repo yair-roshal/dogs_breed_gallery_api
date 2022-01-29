@@ -3,20 +3,20 @@ import { RightListItem } from "./RightListItem"
 import Grid from "@mui/material/Grid"
 import { useLocalStorage } from '../hooks'
 import { MyContext } from "../contexts/Context"
+import {isArray} from "underscore"
 
 
 export const RightList = ({ loading, dogsObj }) => {
    const elementRef = useRef(0)
 
-  const dogs_context = useContext(MyContext);
-  console.log("dogs_context_RightList", dogs_context)
+  //  const {context, setContext} = useContext(MyContext);
 
-  // const [dogLS, setDogLS] = useLocalStorage("allDogs", dogsObj)
   
   return (
     <div>
+    
       {loading && <div>Loading</div>}
-      {!loading && (
+      {!loading && isArray(dogsObj) &&(
         <div>
           <Grid
             ref={elementRef}

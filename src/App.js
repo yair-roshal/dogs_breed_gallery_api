@@ -1,16 +1,12 @@
 import "./App.css"
 import { Home } from "./components"
-import { useEffect, useState, useContext } from "react"
-import { FetchData } from "./hooks"
-import { MyContext } from "./contexts/Context"
+import { useEffect, useState  } from "react"
+ import { MyContext } from "./contexts/Context"
 import { getDogs } from "./utils/api"
 
-export function App() {
-  // const { loading, dogsObj } = FetchData([])
-   // const dogs_context = useContext(MyContext);
+export function App() { 
   const [loading, setLoading] = useState(true)
-  const [dogsArr, setDogsArr] = useState([])
-  const [context, setContext] = useState(MyContext)
+   const [context, setContext] = useState(MyContext)
 
   function random(min, max) {
     return Math.round(min + Math.random() * (max - min))
@@ -32,33 +28,27 @@ export function App() {
         rv.id = i
         rv.breed = arr[i]
         rv.likes = 0
-        // rv.image = fetchImg(arr[i])
-        arrOfObj.push(rv)
+         arrOfObj.push(rv)
       }
 
     return arrOfObj
   }
-   
+
   useEffect(() => {
     getDogs()
       .then((res) => {
-        // setDogsArr(Object.keys(res))
-        setContext(toObject(randomArray(Object.keys(res)))) 
+         setContext(toObject(randomArray(Object.keys(res))))
         setLoading(false)
-      }) 
+      })
       .catch((error) => console.log(error))
   }, [])
 
- 
-
   return (
-    <MyContext.Provider value={context}>
- 
-      {/* <MyContext.Provider value={[context, setContext]}> */}
+    // <MyContext.Provider value={context}>
+     <MyContext.Provider value={{context, setContext}}>
+     {/* <MyContext.Provider value={[context, setContext]}> */}
       <div className="App">
-         {/* <Home loading={loading} dogsObj={dogsObj} /> */}
-                  <Home loading={loading}   />
-
+        <Home loading={loading} />
       </div>
     </MyContext.Provider>
   )
