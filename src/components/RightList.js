@@ -8,7 +8,7 @@ export const RightList = ({ loading, dogsObj }) => {
       {loading && <div>Loading</div>}
       {!loading && isArray(dogsObj) && (
         <div>
-          <Grid container spacing={2}>
+          <Grid container spacing={2}> 
             {dogsObj.map((dog, index) => (
               <RightListItem key={index} dog={dog} />
             ))}

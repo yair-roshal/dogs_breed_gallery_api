@@ -14,7 +14,7 @@ export function App() {
 
   function randomArray(Arr) {
     let randomArr = []
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i <= 80; i++) {
       randomArr.push(Arr[random(0, Arr.length)])
     }
     return randomArr

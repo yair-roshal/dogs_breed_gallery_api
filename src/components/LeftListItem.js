@@ -8,11 +8,14 @@ import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 
 export const LeftListItem = ({dog}) => {
-  // const { breed, likes } = dog
-const breed=dog[0]
-const counts=dog[1]
-const likes=0
+  const { id,breed, likes } = dog
  
+
+  
+  useEffect(() => {
+    
+  }, [likes])
+
   return (
     <Box
       sx={{
@@ -37,10 +40,7 @@ const likes=0
               flexDirection: "row",
             }}
           />
-          <CardContent>
-            <Typography variant="body1" color="text.secondary">
-              counts={counts}
-            </Typography>
+          <CardContent> 
             <Typography variant="body2" color="text.secondary">
               likes={likes}
             </Typography>

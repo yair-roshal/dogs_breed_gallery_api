@@ -16,16 +16,16 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }))
 
-export function Home({loading}) {
- 
-    const {context, setContext} = useContext(MyContext);
-  console.log("dogs_context_home", context)
- 
+export function Home({ loading }) {
+  const { context, setContext } = useContext(MyContext)
+  // console.log("dogs_context_home", context)
+  useEffect(() => {}, [context])
   return (
     <>
       {loading && <div>Loading</div>}
       {!loading && (
         <Box sx={{ width: "100%" }}>
+          {console.log("context", context)}
           <Grid
             container
             rowSpacing={1}
