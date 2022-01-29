@@ -10,17 +10,18 @@ import { MyContext } from "../contexts/Context"
 export const RightListItem = ({ dog }) => {
   const { context, setContext } = useContext(MyContext) 
   const { id, breed, likes } = dog
-  const [count, setCount] = useState(likes)
+  const [count, setCount] = useState(0)
 
   useEffect(() => {
-
-
-  }, [context])
+ 
+  }, [count])
 
 
   const handleIncrement = () => {
-    setCount((prevCount) => prevCount + 1)
+    setCount((count) => count + 1)
+    // console.log('replace(context, id)', replace(context, id));
     setContext(replace(context, id))
+    console.log('context', context);
   }
 
   function replace(object, searchID) {

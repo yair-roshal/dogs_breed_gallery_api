@@ -14,7 +14,7 @@ export function App() {
 
   function randomArray(Arr) {
     let randomArr = []
-    for (let i = 0; i <= 80; i++) {
+    for (let i = 0; i < 80; i++) {
       randomArr.push(Arr[random(0, Arr.length)])
     }
     return randomArr
@@ -46,7 +46,8 @@ export function App() {
   return (
       <MyContext.Provider value={{context, setContext}}>
        <div className="App">
-        <Home loading={loading} />
+{/* {         console.log('context_Provider', context)} */}
+<Home loading={loading} dogs={context}/>
       </div>
     </MyContext.Provider>
   )

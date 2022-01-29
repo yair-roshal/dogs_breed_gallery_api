@@ -26,13 +26,13 @@ export const LeftList = ({ loading, dogsObj }) => {
     acc[el] = (acc[el] || 0) + 1
     return acc
   }, {})
-  // console.log("countOfBreed", countOfBreed)
+  console.log("countOfBreed", countOfBreed)
 
   const allBreeds = Object.keys(countOfBreed)
-  // console.log("allBreeds", allBreeds)
+  console.log("allBreeds", allBreeds)
 
   const ArrayCountOfBreed = Object.entries(countOfBreed)
-  // console.log("ArrayCountOfBreed", ArrayCountOfBreed)
+  console.log("ArrayCountOfBreed", ArrayCountOfBreed)
 
   function toObject(arr) {
     let arrOfObj = []
@@ -41,6 +41,7 @@ export const LeftList = ({ loading, dogsObj }) => {
         let rv = {}
         rv.id = i
         rv.breed = arr[i][0]
+        rv.count = arr[i][1]
         rv.likes = 0
         arrOfObj.push(rv)
       }
@@ -49,10 +50,10 @@ export const LeftList = ({ loading, dogsObj }) => {
   }
 
   const ObjectCountOfBreed = toObject(ArrayCountOfBreed)
-  // console.log("ObjectCountOfBreed", ObjectCountOfBreed)
+  console.log("ObjectCountOfBreed", ObjectCountOfBreed)
 
   const newLeftList = replaceLeftList(dogsObj, ObjectCountOfBreed, allBreeds)
-  // console.log("newLeftList", newLeftList)
+  console.log("newLeftList", newLeftList)
 
   function replaceLeftList(allDogs, leftList, allBreeds) {
     let newLeftList = leftList
