@@ -6,44 +6,52 @@ import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
 import { MyContext } from "../contexts/Context"
-import { useLocalStorage } from '../hooks'
 
 export const RightListItem = ({ dog }) => {
-  // const [context, setContext] = useContext(MyContext)
- 
+  const { context, setContext } = useContext(MyContext)
+
   const { id, breed, likes } = dog
   const [count, setCount] = useState(0)
- 
+
   const handleIncrement = () => {
-    setCount((prevCount) => prevCount + 1) 
+    setCount((prevCount) => prevCount + 1)
+    setContext(replace(context, id))
   }
- 
-// console.log('dog1111', dog);
 
-//   const dogs = [
-//   { id: 0, breed: "newfoundland", likes: 0 },
-//   { id: 1, breed: "hound", likes: 0 },
-//   { id: 2, breed: "labrador", likes: 0 },
-// ]
-
-  // useEffect(() => {  
-  //        setContext(toObject(randomArray(Object.keys(res))))
-      
-  // }, [])
+  function replace(object, searchID) { 
+    var replacedObject = object
+    for (var i = 0; i < replacedObject.length; i++) {
+      if (replacedObject[i].id != searchID) continue
+      replacedObject[i].likes++
+      return replacedObject
+    }
+  }
+  
+  // const handleIncrement = () => {
+  //   const newContext = replace(context, id)
+  //   setContext(newContext)
+  // }
  
   return (
     <Grid
-       onClick={handleIncrement}
-      //  onClick={() => setContext(dogs)}
-      item
+      onClick={handleIncrement}
+       item
       xs={3}
     >
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader subheader={breed} />
         <CardContent>
+          <Typography variant="body1" color="text.secondary">
+            id={id}
+          </Typography>
+
           <Typography variant="body2" color="text.secondary">
             likes={count}
           </Typography>
+          {/* <Typography variant="body2" color="text.secondary">
+            likes={likes}
+          </Typography> */}
+
         </CardContent>
         <FetchImg dog={breed} />
       </Card>
