@@ -44,10 +44,8 @@ export function App() {
   }, [])
 
   return (
-    // <MyContext.Provider value={context}>
-     <MyContext.Provider value={{context, setContext}}>
-     {/* <MyContext.Provider value={[context, setContext]}> */}
-      <div className="App">
+      <MyContext.Provider value={{context, setContext}}>
+       <div className="App">
         <Home loading={loading} />
       </div>
     </MyContext.Provider>

@@ -18,7 +18,7 @@ export const RightListItem = ({ dog }) => {
     setContext(replace(context, id))
   }
 
-  function replace(object, searchID) { 
+  function replace(object, searchID) {
     var replacedObject = object
     for (var i = 0; i < replacedObject.length; i++) {
       if (replacedObject[i].id != searchID) continue
@@ -26,32 +26,18 @@ export const RightListItem = ({ dog }) => {
       return replacedObject
     }
   }
-  
-  // const handleIncrement = () => {
-  //   const newContext = replace(context, id)
-  //   setContext(newContext)
-  // }
- 
+
   return (
-    <Grid
-      onClick={handleIncrement}
-       item
-      xs={3}
-    >
+    <Grid onClick={handleIncrement} item xs={3}>
       <Card sx={{ maxWidth: 345 }}>
         <CardHeader subheader={breed} />
         <CardContent>
           <Typography variant="body1" color="text.secondary">
             id={id}
           </Typography>
-
           <Typography variant="body2" color="text.secondary">
             likes={count}
           </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
-            likes={likes}
-          </Typography> */}
-
         </CardContent>
         <FetchImg dog={breed} />
       </Card>
