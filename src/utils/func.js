@@ -1,4 +1,3 @@
-
   export function toObject(arr) {
     let arrOfObj = []
     for (var i = 0; i < arr.length; ++i)
@@ -15,30 +14,27 @@
   }
  
   export function searchLikes(allDogs, leftList, allBreeds) {
-    let newLeftList = leftList
+    let newLeftListLikes = leftList
     for (var i = 0; i < allBreeds.length; i++) {
       searchLikesBreed(allDogs, leftList, allBreeds[i])
     }
-    return newLeftList
+    console.log('newLeftListLikes fffffff', newLeftListLikes);
+    return newLeftListLikes
   }
 
     function searchLikesBreed(allDogs, leftList, searchBreed) {
     let newLeftList = leftList
     let allLikes = 0 
+
     for (var i = 0; i < allDogs.length; i++) {
       if (allDogs[i].breed == searchBreed)
         allLikes = allLikes + allDogs[i].likes
-        // console.log('allDogs[i].likes', allDogs[i].likes)
-
     }
-console.log('allLikes', allLikes);
-console.log('searchBreed', searchBreed);
- 
-      // debugger;
-
+  
     for (var i = 0; i < newLeftList.length; i++) {
       if (newLeftList[i].breed == searchBreed) newLeftList[i].likes = allLikes
     }
+    console.log('newLeftList fffff', newLeftList);
 
     return newLeftList
   }

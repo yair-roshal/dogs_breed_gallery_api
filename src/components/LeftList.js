@@ -33,15 +33,14 @@ export const LeftList = () => {
   const [newLeftList, setNewLeftList] = useState(
     searchLikes(dogs, ObjectCountOfBreed, allBreeds)
   )
+  // console.log('newLeftList', newLeftList);
 
   useEffect(() => {
-    setNewLeftList(dogs)
-  }, [dogs, newLeftList])
+    setNewLeftList(searchLikes(dogs, ObjectCountOfBreed, allBreeds))
+  }, [dogs])
 
   return (
-    <div>
-      {/* {loading && <div>Loading</div>}
-      {!loading  */}
+    <div> 
       {newLeftList && (
         <div>
           <List>
