@@ -14,23 +14,31 @@
     return arrOfObj
   }
  
-  export function replaceLeftList(allDogs, leftList, allBreeds) {
+  export function searchLikes(allDogs, leftList, allBreeds) {
     let newLeftList = leftList
     for (var i = 0; i < allBreeds.length; i++) {
-      replaceLeftListBreed(allDogs, leftList, allBreeds[i])
+      searchLikesBreed(allDogs, leftList, allBreeds[i])
     }
     return newLeftList
   }
 
-    function replaceLeftListBreed(allDogs, leftList, searchBreed) {
+    function searchLikesBreed(allDogs, leftList, searchBreed) {
     let newLeftList = leftList
-    var allLikes = 0
+    let allLikes = 0 
     for (var i = 0; i < allDogs.length; i++) {
       if (allDogs[i].breed == searchBreed)
         allLikes = allLikes + allDogs[i].likes
+        // console.log('allDogs[i].likes', allDogs[i].likes)
+
     }
+console.log('allLikes', allLikes);
+console.log('searchBreed', searchBreed);
+ 
+      // debugger;
+
     for (var i = 0; i < newLeftList.length; i++) {
       if (newLeftList[i].breed == searchBreed) newLeftList[i].likes = allLikes
     }
+
     return newLeftList
   }

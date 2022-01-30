@@ -3,7 +3,7 @@ import List from "@mui/material/List"
 
 import { LeftListItem } from "./LeftListItem"
 import { DogsContext } from "../contexts/Context"
-import { toObject, replaceLeftList } from "../utils/func"
+import { toObject, searchLikes } from "../utils/func"
 
 export const LeftList = () => {
   const [dogs, setDogs] = useContext(DogsContext)
@@ -30,14 +30,19 @@ export const LeftList = () => {
   const ObjectCountOfBreed = toObject(ArrayCountOfBreed)
   // console.log("ObjectCountOfBreed", ObjectCountOfBreed)
 
-  const newLeftList = replaceLeftList(dogs, ObjectCountOfBreed, allBreeds)
-  console.log("newLeftList", newLeftList)
+  const [newLeftList, setNewLeftList] = useState(
+    searchLikes(dogs, ObjectCountOfBreed, allBreeds)
+  )
+
+  useEffect(() => {
+    setNewLeftList(dogs)
+  }, [dogs, newLeftList])
 
   return (
     <div>
       {/* {loading && <div>Loading</div>}
       {!loading  */}
-      {dogs && (
+      {newLeftList && (
         <div>
           <List>
             {newLeftList.map((dog, index) => (

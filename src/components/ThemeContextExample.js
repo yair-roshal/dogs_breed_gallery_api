@@ -8,8 +8,7 @@ export function ThemeContextExample() {
   const [colors, setColors] = useContext( 
     ThemeContext
   )
-
-  
+ 
   return (
 
     <div>

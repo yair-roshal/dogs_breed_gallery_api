@@ -22,8 +22,7 @@ export const RightList = ( ) => {
       && (
         <div>
           <Grid container spacing={2}> 
-{          console.log('dogs_RightList', dogs)
-}            {dogs.map((dog, index) => (
+             {dogs.map((dog, index) => (
               <RightListItem key={index} dog={dog} />
             ))}
           </Grid>

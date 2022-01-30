@@ -70,9 +70,16 @@ export function App() {
     // </ThemeContext.Provider>
 
     <DogsContext.Provider value={[dogs, setDogs ] } >
+      {console.log('dogs', dogs)}
       <div className="App">
          <Home loading={loading}  />
       </div>
     </DogsContext.Provider>
+
+ 
+
+
+
+
   )
 }

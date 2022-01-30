@@ -1,5 +1,5 @@
  import  {getDogs,getImage} from  "./api"
- import  {toObject,replaceLeftList  } from  "./func"
+ import  {toObject,searchLikes  } from  "./func"
 
  
 
