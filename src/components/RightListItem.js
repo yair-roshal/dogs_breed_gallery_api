@@ -1,9 +1,7 @@
 import { useState, useContext } from "react"
 import { FetchImg } from "../hooks"
 import Card from "@mui/material/Card"
-import CardHeader from "@mui/material/CardHeader"
-import CardContent from "@mui/material/CardContent"
-import Typography from "@mui/material/Typography"
+import CardHeader from "@mui/material/CardHeader" 
 import Grid from "@mui/material/Grid"
 import { styled } from "@mui/system"
 import CardActions from "@mui/material/CardActions"
@@ -49,20 +47,14 @@ export const RightListItem = ({ dog }) => {
     <Grid item xs={3}>
       <MyBox>
         <Card sx={{ maxWidth: 345 }}>
-          <CardHeader subheader={breed} />
-          <CardContent>
-            <Typography variant="body2" color="text.secondary">
-              likes={count}
-            </Typography>
-          </CardContent>
-
+          <CardHeader subheader={breed} /> 
           <CardActions disableSpacing>
             <IconButton
               onClick={handleIncrement}
               aria-label="add to favorites"
               sx={{ color: count > 0 ? "red" : "" }}
             >
-              <FavoriteIcon />
+              <FavoriteIcon /> <span>{count} </span> 
             </IconButton>
           </CardActions>
 

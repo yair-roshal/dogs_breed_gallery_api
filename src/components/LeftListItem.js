@@ -1,15 +1,17 @@
-import Box from "@mui/material/Box"
-import ListItem from "@mui/material/ListItem"
+ import ListItem from "@mui/material/ListItem"
 import Divider from "@mui/material/Divider"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import { styled } from "@mui/system"
+import CardActions from "@mui/material/CardActions"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import IconButton from "@mui/material/IconButton"
 
 const MyBox = styled("Box")({
   padding: 2,
-   cursor: "pointer",
+  cursor: "pointer",
   "-webkit-touch-callout": "none" /* iOS Safari */,
   "-webkit-user-select": "none" /* Chrome/Safari/Opera */,
   "-khtml-user-select": "none" /* Konqueror */,
@@ -45,14 +47,22 @@ export const LeftListItem = ({ dog }) => {
               flexDirection: "row",
             }}
           />
+
           <CardContent>
             <Typography variant="body1" color="text.secondary">
               count={count}
             </Typography>
+ 
+            <CardActions disableSpacing>
+              <IconButton
+                aria-label="add to favorites"
+                sx={{ color: likes > 0 ? "red" : "" }}
+              >
+                <FavoriteIcon /> <span>{likes} </span>
+              </IconButton>
+            </CardActions>
 
-            <Typography variant="body2" color="text.secondary">
-              likes={likes}
-            </Typography>
+
           </CardContent>
         </Card>
       </ListItem>
