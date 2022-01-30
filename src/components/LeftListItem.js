@@ -11,10 +11,11 @@ export const LeftListItem = ({ dog }) => {
   const { id, breed, count, likes } = dog
 
   // console.log('dog', dog);
-  useEffect(() => {}, [likes])
+  // useEffect(() => {}, [likes])
 
   return (
     <Box
+
       sx={{
         width: "100%",
         bgcolor: "background.paper",
