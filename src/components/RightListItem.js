@@ -5,8 +5,24 @@ import CardHeader from "@mui/material/CardHeader"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import Grid from "@mui/material/Grid"
+import { styled } from "@mui/system"
+import CardActions from "@mui/material/CardActions"
+import FavoriteIcon from "@mui/icons-material/Favorite"
+import IconButton from "@mui/material/IconButton"
 
 import { DogsContext } from "../contexts/Context"
+
+const MyBox = styled("Box")({
+  padding: 8,
+  borderRadius: 4,
+  cursor: "pointer",
+  "-webkit-touch-callout": "none" /* iOS Safari */,
+  "-webkit-user-select": "none" /* Chrome/Safari/Opera */,
+  "-khtml-user-select": "none" /* Konqueror */,
+  "-moz-user-select": "none" /* Firefox */,
+  "-ms-user-select": "none" /* Internet Explorer/Edge */,
+  "user-select": "none",
+})
 
 export const RightListItem = ({ dog }) => {
   const { id, breed, likes } = dog
@@ -30,16 +46,29 @@ export const RightListItem = ({ dog }) => {
   }
 
   return (
-    <Grid onClick={handleIncrement} item xs={3}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardHeader subheader={breed} />
-        <CardContent>
-          <Typography variant="body2" color="text.secondary">
-            likes={count}
-          </Typography>
-        </CardContent>
-        <FetchImg dog={breed} />
-      </Card>
+    <Grid item xs={3}>
+      <MyBox>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardHeader subheader={breed} />
+          <CardContent>
+            <Typography variant="body2" color="text.secondary">
+              likes={count}
+            </Typography>
+          </CardContent>
+
+          <CardActions disableSpacing>
+            <IconButton
+              onClick={handleIncrement}
+              aria-label="add to favorites"
+              sx={{ color: count > 0 ? "red" : "" }}
+            >
+              <FavoriteIcon />
+            </IconButton>
+          </CardActions>
+
+          <FetchImg dog={breed} />
+        </Card>
+      </MyBox>
     </Grid>
   )
 }
