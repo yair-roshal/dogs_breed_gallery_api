@@ -1,12 +1,21 @@
 import "./App.css"
 import { Home } from "./components"
-import { useEffect, useState  } from "react"
- import { MyContext } from "./contexts/Context"
+import { useEffect, useState } from "react"
 import { getDogs } from "./utils/api"
+//  import {colors} from "@mui/material"
+import { MyContext } from "./contexts/Context"
 
-export function App() { 
+import { ThemeContext } from "./contexts/ThemeContext"
+import { ThemeContextExample } from "./components"
+
+export function App() {
+  const [colors, setColors] = useState({
+    accent1: "blue",
+    accent2: "red",
+  })
+
   const [loading, setLoading] = useState(true)
-   const [context, setContext] = useState(MyContext)
+  const [context, setContext] = useState(MyContext)
 
   function random(min, max) {
     return Math.round(min + Math.random() * (max - min))
@@ -28,7 +37,7 @@ export function App() {
         rv.id = i
         rv.breed = arr[i]
         rv.likes = 0
-         arrOfObj.push(rv)
+        arrOfObj.push(rv)
       }
 
     return arrOfObj
@@ -37,18 +46,35 @@ export function App() {
   useEffect(() => {
     getDogs()
       .then((res) => {
-         setContext(toObject(randomArray(Object.keys(res))))
+        setContext(toObject(randomArray(Object.keys(res))))
         setLoading(false)
       })
       .catch((error) => console.log(error))
   }, [])
 
   return (
-      <MyContext.Provider value={{context, setContext}}>
-       <div className="App">
-{/* {         console.log('context_Provider', context)} */}
-<Home loading={loading} dogs={context}/>
+    <ThemeContext.Provider value={[colors, setColors]}>
+      <div>
+        {/* <input
+          value={colors.accent1}
+          type="color"
+          onChange={(e) => setColors({ accent1: e.target.value })}
+        />
+        <input
+          value={colors.accent2}
+          type="color"
+          onChange={(e) => setColors({ accent2: e.target.value })}
+        /> */}
+
+        <ThemeContextExample />
       </div>
-    </MyContext.Provider>
+    </ThemeContext.Provider>
+
+    // <MyContext.Provider value={{ context, setContext }}>
+    //   <div className="App">
+    //     {/* { console.log('context_Provider', context)} */}
+    //     <Home loading={loading} dogs={context} />
+    //   </div>
+    // </MyContext.Provider>
   )
 }
