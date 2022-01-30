@@ -9,7 +9,7 @@ export const LeftList = () => {
   const [dogs, setDogs] = useContext(DogsContext)
 
   let newArr = []
-  for (var i = 0; i < dogs.length; ++i) {
+  for (let i = 0; i < dogs.length; ++i) {
     const values = Object.values(dogs[i])
     newArr.push(values[1])
   }

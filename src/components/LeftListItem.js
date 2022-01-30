@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react"
 import Box from "@mui/material/Box"
 import ListItem from "@mui/material/ListItem"
 import Divider from "@mui/material/Divider"
@@ -8,14 +7,10 @@ import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 
 export const LeftListItem = ({ dog }) => {
-  const { id, breed, count, likes } = dog
-
-  // console.log('dog', dog);
-  // useEffect(() => {}, [likes])
+  const { breed, count, likes } = dog
 
   return (
     <Box
-
       sx={{
         width: "100%",
         bgcolor: "background.paper",
