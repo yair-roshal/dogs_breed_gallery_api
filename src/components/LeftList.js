@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react"
+import { useEffect, useState, useContext, useMemo } from "react"
 import List from "@mui/material/List"
 
 import { LeftListItem } from "./LeftListItem"
@@ -13,37 +13,39 @@ export const LeftList = () => {
     const values = Object.values(dogs[i])
     newArr.push(values[1])
   }
-  // console.log("newArr", newArr)
 
   let countOfBreed = newArr.reduce((acc, el) => {
     acc[el] = (acc[el] || 0) + 1
     return acc
   }, {})
-  // console.log("countOfBreed", countOfBreed)
 
   const allBreeds = Object.keys(countOfBreed)
-  // console.log("allBreeds", allBreeds)
-
   const ArrayCountOfBreed = Object.entries(countOfBreed)
-  // console.log("ArrayCountOfBreed", ArrayCountOfBreed)
-
   const ObjectCountOfBreed = toObject(ArrayCountOfBreed)
-  // console.log("ObjectCountOfBreed", ObjectCountOfBreed)
+
+  // const countOfBreed = useMemo(newArr.reduce((acc, el) =>{
+  //     acc[el] = (acc[el] || 0) + 1
+  //     return acc
+  //   }))
+
+  // const allBreeds = useMemo(() => Object.keys(countOfBreed));
+  // const ArrayCountOfBreed = useMemo(() => Object.entries(countOfBreed) );
+  // const ObjectCountOfBreed = useMemo(() => toObject(ArrayCountOfBreed));
 
   const [newLeftList, setNewLeftList] = useState(
     searchLikes(dogs, ObjectCountOfBreed, allBreeds)
   )
-  // console.log('newLeftList', newLeftList);
 
   useEffect(() => {
     setNewLeftList(searchLikes(dogs, ObjectCountOfBreed, allBreeds))
   }, [dogs])
 
   return (
-    <div> 
+    <div>
       {newLeftList && (
         <div>
           <List>
+            {console.log("LeftList :>> ")}
             {newLeftList.map((dog, index) => (
               <LeftListItem key={index} dog={dog} />
             ))}

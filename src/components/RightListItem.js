@@ -6,9 +6,11 @@ import Grid from "@mui/material/Grid"
 import { styled } from "@mui/system"
 import CardActions from "@mui/material/CardActions"
 import FavoriteIcon from "@mui/icons-material/Favorite"
-import IconButton from "@mui/material/IconButton"
-
+import IconButton from "@mui/material/IconButton" 
 import { DogsContext } from "../contexts/Context"
+
+console.log("RightListItem :>> ") 
+
 
 const MyBox = styled("Box")({
   padding: 8,

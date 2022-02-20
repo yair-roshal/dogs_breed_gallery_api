@@ -1,4 +1,4 @@
- import ListItem from "@mui/material/ListItem"
+import ListItem from "@mui/material/ListItem"
 import Divider from "@mui/material/Divider"
 import Card from "@mui/material/Card"
 import CardHeader from "@mui/material/CardHeader"
@@ -19,6 +19,8 @@ const MyBox = styled("Box")({
   "-ms-user-select": "none" /* Internet Explorer/Edge */,
   "user-select": "none",
 })
+
+ console.log("LeftListItem :>> ") 
 
 export const LeftListItem = ({ dog }) => {
   const { breed, count, likes } = dog
@@ -52,7 +54,7 @@ export const LeftListItem = ({ dog }) => {
             <Typography variant="body1" color="text.secondary">
               count={count}
             </Typography>
- 
+
             <CardActions disableSpacing>
               <IconButton
                 aria-label="add to favorites"
@@ -61,8 +63,6 @@ export const LeftListItem = ({ dog }) => {
                 <FavoriteIcon /> <span>{likes} </span>
               </IconButton>
             </CardActions>
-
-
           </CardContent>
         </Card>
       </ListItem>

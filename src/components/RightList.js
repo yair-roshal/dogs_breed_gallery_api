@@ -3,6 +3,9 @@ import Grid from "@mui/material/Grid"
 import { useContext } from "react"
 import { DogsContext } from "../contexts/Context"
 
+console.log("RightList :>> ") 
+
+
 export const RightList = () => {
   const [dogs, setDogs] = useContext(DogsContext)
 
